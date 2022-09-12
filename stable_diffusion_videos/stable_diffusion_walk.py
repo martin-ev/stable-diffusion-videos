@@ -83,6 +83,7 @@ def walk(
     num_inference_steps=50,
     do_loop=False,
     make_video=False,
+    fps=30,
     use_lerp_for_text=False,
     scheduler="klms",  # choices: default, ddim, klms
     disable_tqdm=False,
@@ -207,7 +208,7 @@ def walk(
         latents_a = latents_b
 
     if make_video:
-        return make_video_ffmpeg(output_path, f"{name}.mp4")
+        return make_video_ffmpeg(output_path, f"{name}.mp4", fps=fps)
 
 
 if __name__ == "__main__":
